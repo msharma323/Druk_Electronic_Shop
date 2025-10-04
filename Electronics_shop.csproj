@@ -1,0 +1,314 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F9FC00B-D50B-4F5D-B853-8291E46CE29E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Electronics_shop</RootNamespace>
+    <AssemblyName>Electronics_shop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44334</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccessoriesCollection.aspx" />
+    <Content Include="admin.aspx" />
+    <Content Include="admin_login.aspx" />
+    <Content Include="LaptopCollection.aspx" />
+    <Content Include="styles\about.css" />
+    <Content Include="styles\admin.css" />
+    <Content Include="styles\admin_login.css" />
+    <Content Include="assets\login_register.css" />
+    <Content Include="blank.html" />
+    <Content Include="CamerasCollection.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="checkout.html" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\nouislider.min.css" />
+    <Content Include="css\slick-theme.css" />
+    <Content Include="css\slick.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\slick.svg" />
+    <Content Include="HotDeals.aspx" />
+    <Content Include="images\ales-nesetril-Im7lZjxeLhg-unsplash.jpg" />
+    <Content Include="images\andras-vas-Bd7gNnWJBkU-unsplash - Copy.jpg" />
+    <Content Include="images\andras-vas-Bd7gNnWJBkU-unsplash.jpg" />
+    <Content Include="images\anete-lusina-zwsHjakE_iI-unsplash.jpg" />
+    <Content Include="images\christin-hume-Hcfwew744z4-unsplash.jpg" />
+    <Content Include="images\christopher-gower-m_HRfLhgABo-unsplash.jpg" />
+    <Content Include="images\corinne-kutz-tMI2_-r5Nfo-unsplash.jpg" />
+    <Content Include="images\daniel-korpai-HyTwtsk8XqA-unsplash.jpg" />
+    <Content Include="images\glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" />
+    <Content Include="images\howard-bouchevereau-RSCirJ70NDM-unsplash.jpg" />
+    <Content Include="images\joshua-woroniecki-lzh3hPtJz9c-unsplash.jpg" />
+    <Content Include="images\linkedin-sales-solutions-0QvTyp0gH3A-unsplash.jpg" />
+    <Content Include="images\marvin-meyer-SYTO3xs06fU-unsplash.jpg" />
+    <Content Include="images\michal-kubalczyk-WecngmAT-KY-unsplash.jpg" />
+    <Content Include="images\niclas-illg-FJ5e_2f96h4-unsplash.jpg" />
+    <Content Include="images\pexels-500photos-com-15338-93405.jpg" />
+    <Content Include="images\pexels-caio-67112.jpg" />
+    <Content Include="images\pexels-cottonbro-4065617.jpg" />
+    <Content Include="images\pexels-cottonbro-4065864.jpg" />
+    <Content Include="images\pexels-cottonbro-5054213.jpg" />
+    <Content Include="images\pexels-cottonbro-5076531.jpg" />
+    <Content Include="images\pexels-cottonbro-5077047.jpg" />
+    <Content Include="images\pexels-danny-meneses-340146-943096.jpg" />
+    <Content Include="images\pexels-divinetechygirl-1181216.jpg" />
+    <Content Include="images\pexels-divinetechygirl-1181244.jpg" />
+    <Content Include="images\pexels-divinetechygirl-1181248.jpg" />
+    <Content Include="images\pexels-divinetechygirl-1181498.jpg" />
+    <Content Include="images\pexels-flodahm-699459.jpg" />
+    <Content Include="images\pexels-fotios-photos-1989304.jpg" />
+    <Content Include="images\pexels-goumbik-296114.jpg" />
+    <Content Include="images\pexels-jeshoots-218863.jpg" />
+    <Content Include="images\pexels-jeshoots-com-147458-442575.jpg" />
+    <Content Include="images\pexels-jessbaileydesign-839443.jpg" />
+    <Content Include="images\pexels-life-of-pix-7974.jpg" />
+    <Content Include="images\pexels-luis-gomes-166706-546819.jpg" />
+    <Content Include="images\pexels-marta-klement-636760-1438081.jpg" />
+    <Content Include="images\pexels-natri-792199.jpg" />
+    <Content Include="images\pexels-picjumbo-com-55570-196655.jpg" />
+    <Content Include="images\pexels-pixabay-265087.jpg" />
+    <Content Include="images\pexels-pixabay-459653.jpg" />
+    <Content Include="images\pexels-pixabay-461064.jpg" />
+    <Content Include="images\pexels-polina-zimmerman-3746947.jpg" />
+    <Content Include="images\pexels-reezky11-441963.jpg" />
+    <Content Include="images\pexels-shvetsa-3987114.jpg" />
+    <Content Include="images\pexels-tact-tm-3844565.jpg" />
+    <Content Include="images\pexels-thelazyartist-1467277.jpg" />
+    <Content Include="images\pexels-thepaintedsquare-583842.jpg" />
+    <Content Include="images\pexels-veeterzy-303383.jpg" />
+    <Content Include="images\samantha-borges-gXsJ9Ywb5as-unsplash.jpg" />
+    <Content Include="img\hotdeal.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\product01.png" />
+    <Content Include="img\product02.png" />
+    <Content Include="img\product03.png" />
+    <Content Include="img\product04.png" />
+    <Content Include="img\product05.png" />
+    <Content Include="img\product06.png" />
+    <Content Include="img\product07.png" />
+    <Content Include="img\product08.png" />
+    <Content Include="img\product09.png" />
+    <Content Include="img\shop01.png" />
+    <Content Include="img\shop02.png" />
+    <Content Include="img\shop03.png" />
+    <Content Include="index.html" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.zoom.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\nouislider.min.js" />
+    <Content Include="js\slick.min.js" />
+    <Content Include="login_register.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="product.html" />
+    <Content Include="screenshot\Checkout.png" />
+    <Content Include="screenshot\Index.png" />
+    <Content Include="screenshot\Product.png" />
+    <Content Include="screenshot\Regular.png" />
+    <Content Include="screenshot\Store.png" />
+    <Content Include="store.html" />
+    <Content Include="styles\LaptopCollection.css" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessoriesCollection.aspx.cs">
+      <DependentUpon>AccessoriesCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessoriesCollection.aspx.designer.cs">
+      <DependentUpon>AccessoriesCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_login.aspx.cs">
+      <DependentUpon>admin_login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_login.aspx.designer.cs">
+      <DependentUpon>admin_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CamerasCollection.aspx.cs">
+      <DependentUpon>CamerasCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CamerasCollection.aspx.designer.cs">
+      <DependentUpon>CamerasCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotDeals.aspx.cs">
+      <DependentUpon>HotDeals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotDeals.aspx.designer.cs">
+      <DependentUpon>HotDeals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LaptopCollection.aspx.cs">
+      <DependentUpon>LaptopCollection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LaptopCollection.aspx.designer.cs">
+      <DependentUpon>LaptopCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login_register.aspx.cs">
+      <DependentUpon>login_register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login_register.aspx.designer.cs">
+      <DependentUpon>login_register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\slick.eot" />
+    <Content Include="fonts\slick.ttf" />
+    <Content Include="fonts\slick.woff" />
+    <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\products\" />
+    <Folder Include="Product_Images\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61162</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44334/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
