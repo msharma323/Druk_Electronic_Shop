@@ -22,6 +22,7 @@ namespace Electronics_shop
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             getcon();
         }
 

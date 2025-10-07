@@ -11,34 +11,25 @@ namespace Electronics_shop
 {
 
 
-    public partial class Cart
+    public partial class ViewDetail
     {
 
         /// <summary>
-        /// form1 control.
+        /// hlBackToCollection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.HyperLink hlBackToCollection;
 
         /// <summary>
-        /// gvCart control.
+        /// DataList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCart;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.DataList DataList1;
     }
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="Cart" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="Electronics_shop.Cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <style>
         .cart-container {
             max-width: 950px;
@@ -81,6 +82,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+ <form id="form1" runat="server">
+
     <div class="cart-container">
         <h2 class="cart-title">🛒 Your Cart</h2>
 
@@ -106,10 +109,11 @@
         </asp:GridView>
 
         <div style="margin-top:20px; text-align:center;">
-            <asp:Button ID="btnOrder" runat="server" CssClass="btn-order" Text="Proceed to Order" OnClick="btnOrder_Click" />
+            <asp:Button ID="Button1" runat="server" CssClass="btn-order" Text="Proceed to Order" OnClick="btnOrder_Click" />
             <a href="LaptopCollection.aspx" class="continue-shopping">← Continue Shopping</a>
         </div>
     </div>
+     </form>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="Scripts" runat="server">

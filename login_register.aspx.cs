@@ -18,6 +18,12 @@ namespace Electronics_shop
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+          if (Session["Email"] != null)
+          {
+           Response.Redirect("WebForm1.aspx");
+          }
+            
 
         }
 
@@ -40,6 +46,8 @@ namespace Electronics_shop
                 Session["UserID"] = dr["Id"].ToString();
                 Session["FullName"] = dr["FullName"].ToString();
                 Session["Email"] = dr["Email"].ToString();
+
+                Session["isLogin"] = true;
 
                 lblLoginMessage.Visible = true;
                 lblLoginMessage.Text = "Login successful! Redirecting...";

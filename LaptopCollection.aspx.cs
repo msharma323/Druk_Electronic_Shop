@@ -27,8 +27,11 @@ namespace Electronics_shop
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getcon();
-            filllist();
+            if (!IsPostBack)
+            {
+                ViewState["pid"] = 0;
+                filllist();
+            }
         }
 
         void getcon()
@@ -40,7 +43,7 @@ namespace Electronics_shop
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
             LinkButton1.Enabled = true;
-            p += Convert.ToInt32(ViewState["pid"]) + 1;
+            p = Convert.ToInt32(ViewState["pid"]) + 1;
 
             ViewState["pid"] = Convert.ToInt32(p);
 
@@ -86,6 +89,7 @@ namespace Electronics_shop
             DataList1.DataSource = pg;
             DataList1.DataBind();
         }
+        // Viewdetails of product and add to cart
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "ViewDetails")
@@ -95,20 +99,30 @@ namespace Electronics_shop
             }
             else if (e.CommandName == "AddToCart")
             {
+                if (Session["Email"] == null)
+                {
+                    Response.Redirect("login_register.aspx");
+                    return;
+                }
+
                 getcon();
-                SqlDataAdapter da = new SqlDataAdapter("select * from Register where Email='" + Session["Email"] + "'", con);
+
+                // Fetch user id
+                SqlDataAdapter da = new SqlDataAdapter("select * from users where Email='" + Session["Email"] + "'", con);
                 ds = new DataSet();
                 da.Fill(ds);
                 int userid = Convert.ToInt32(ds.Tables[0].Rows[0]["Id"].ToString());
 
+                //Fetch product details
                 int prodid = Convert.ToInt32(e.CommandArgument);
                 da = new SqlDataAdapter("select * from products where Id='" + prodid + "'", con);
                 ds = new DataSet();
                 da.Fill(ds);
 
-                string prodname = ds.Tables[0].Rows[0][2].ToString();
-                string prodprc = ds.Tables[0].Rows[0][4].ToString();
-                string img = ds.Tables[0].Rows[0][5].ToString();
+                string prodname = ds.Tables[0].Rows[0]["Product_Name"].ToString();
+                string prodprc = ds.Tables[0].Rows[0]["Price"].ToString();
+                string img = ds.Tables[0].Rows[0]["Image1"].ToString();
+
                 int quantity = 1;
 
                 cmd = new SqlCommand("insert into Cart_tbl(User_Cart_Id, Prod_Cart_Id, Prod_Name, Prod_Price, Prod_Quantity, img) " +
@@ -117,7 +131,6 @@ namespace Electronics_shop
                 Response.Redirect("Cart.aspx");
             }
         }
-
 
     }
 }

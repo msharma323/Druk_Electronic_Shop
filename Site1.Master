@@ -47,16 +47,14 @@
 						<li><a href="#"><i class="fa fa-map-marker"></i> </a></li>
 					</ul>
 					<ul class="header-links pull-right">
-						
-                     <% if (Session["isLogin"] != null && (bool)Session["isLogin"]) { %>
-                      <!-- Show when logged in -->
-                         <li><a href="Home.aspx"><i class="fa fa-user-o"></i> My Account</a></li>
-                          <li><a href="Logout.aspx"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-                      <% } else { %>
-        <!-- Show when not logged in -->
-                            <li><a href="login_register.aspx"><i class="fa fa-user-o"></i> My Account</a></li>
-                      <% } %>
-                       </ul>
+                    <% if (Session["isLogin"] != null && (bool)Session["isLogin"]) { %>
+                    <!-- Show when logged in -->
+                    <li><a href="Logout.aspx"><i class="fa fa-sign-out"></i> Logout</a></li>
+                    <% } else { %>
+                    <!-- Show when not logged in -->
+                    <li><a href="login_register.aspx"><i class="fa fa-user-o"></i> Login/Register</a></li>
+                    <% } %>
+                    </ul>
 				</div>
 			</div>
 			<!-- /TOP HEADER -->

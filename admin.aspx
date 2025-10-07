@@ -348,7 +348,7 @@ body {
         <h2>Admin Dashboard</h2>
         <ul>
             <li><a href="admin.aspx" class="active">Add Product</a></li>
-            <li><a href="manage-products.aspx">Manage Products</a></li>
+            <li><a href="manage_products.aspx">Manage Products</a></li>
             <li><a href="orders.aspx">View Orders</a></li>
             <li><a href="default.aspx">Back to Site</a></li>
         </ul>
@@ -367,10 +367,11 @@ body {
 
                 <label for="<%= ddlProductType.ClientID %>">Product Type:</label>
                 <asp:DropDownList ID="ddlProductType" runat="server" CssClass="dropdown">
+                    <asp:ListItem Text="----Select Item-----" Value="------Select-----" />
                     <asp:ListItem Text="Laptop" Value="Laptop" />
                     <asp:ListItem Text="Mobile" Value="Mobile" />
                     <asp:ListItem Text="Tablet" Value="Tablet" />
-                    <asp:ListItem Text="Television" Value="Television" />
+                    <asp:ListItem Text="camera" Value="camera" />
                     <asp:ListItem Text="Accessories" Value="Accessories" />
                 </asp:DropDownList>
 

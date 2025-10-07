@@ -22,7 +22,7 @@ namespace Electronics_shop
         {
             if (Session["Email"] == null)
             {
-                Response.Redirect("Register.aspx");
+                Response.Redirect("login_register.aspx");
             }
             if (!IsPostBack)
             {
@@ -42,7 +42,7 @@ namespace Electronics_shop
             ds = new DataSet();
 
             // Get current user ID based on Email
-            da = new SqlDataAdapter("select * from Register where Email='" + Session["Email"] + "'", con);
+            da = new SqlDataAdapter("select * from users where Email='" + Session["Email"] + "'", con);
             da.Fill(ds);
             int uid = Convert.ToInt16(ds.Tables[0].Rows[0]["Id"]);
 
@@ -51,7 +51,7 @@ namespace Electronics_shop
             da = new SqlDataAdapter("select Prod_Cart_Id, Prod_Name, Prod_Price, Prod_Quantity, img from Cart_tbl where User_Cart_Id='" + uid + "'", con);
             da.Fill(cartds);
 
-            gvCart.DataSource = cartds;  // Renamed from SvCart → gvCart for consistency
+            gvCart.DataSource = cartds;
             gvCart.DataBind();
         }
 
@@ -66,7 +66,16 @@ namespace Electronics_shop
 
         protected void gvCart_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            // To be implemented remove/update quantity .
+
+        }
+        
+        protected void btnOrder_Click(object sender, EventArgs e)
+        {
+           
+        }
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
