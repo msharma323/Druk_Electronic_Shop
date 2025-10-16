@@ -343,17 +343,7 @@ body {
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h2>Admin Dashboard</h2>
-        <ul>
-            <li><a href="admin.aspx" class="active">Add Product</a></li>
-            <li><a href="manage_products.aspx">Manage Products</a></li>
-            <li><a href="orders.aspx">View Orders</a></li>
-            <li><a href="default.aspx">Back to Site</a></li>
-        </ul>
-    </div>
-
+    
     <!-- Main content -->
     <div class="main-content">
         <form id="form1" runat="server">
