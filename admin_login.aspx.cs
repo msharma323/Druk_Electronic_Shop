@@ -60,7 +60,7 @@ namespace Electronics_shop
                 Session["AdminName"] = dr["FullName"].ToString();
                 Session["AdminEmail"] = dr["Email"].ToString();
                 Session["AdminRole"] = dr["Role"].ToString();
-                Response.Redirect("admin.aspx");
+                Response.Redirect("admin_login.aspx");
             }
             else
             {

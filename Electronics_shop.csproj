@@ -68,10 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AccessoriesCollection.aspx" />
+    <Content Include="add_product.aspx" />
     <Content Include="admin.aspx" />
     <Content Include="admin_login.aspx" />
     <Content Include="img\Gemini_Generated_Image_npspgenpspgenpsp.png" />
     <Content Include="LaptopCollection.aspx" />
+    <Content Include="manage_product.aspx" />
     <Content Include="manage_products.aspx" />
     <Content Include="order.aspx" />
     <Content Include="styles\about.css" />
@@ -174,6 +176,7 @@
     <Content Include="ViewDetail.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessoriesCollection.aspx.cs">
@@ -182,6 +185,13 @@
     </Compile>
     <Compile Include="AccessoriesCollection.aspx.designer.cs">
       <DependentUpon>AccessoriesCollection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="add_product.aspx.cs">
+      <DependentUpon>add_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="add_product.aspx.designer.cs">
+      <DependentUpon>add_product.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
@@ -239,6 +249,13 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="manage_product.aspx.cs">
+      <DependentUpon>manage_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_product.aspx.designer.cs">
+      <DependentUpon>manage_product.aspx</DependentUpon>
+    </Compile>
     <Compile Include="manage_products.aspx.cs">
       <DependentUpon>manage_products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,6 +278,13 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
     <Compile Include="ViewDetail.aspx.cs">
       <DependentUpon>ViewDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +299,13 @@
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -287,6 +318,7 @@
     <Content Include="fonts\slick.woff" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="Site2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
