@@ -1,345 +1,333 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="HotDeals.aspx.cs" Inherits="Electronics_shop.HotDeals" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <!-- Page-specific CSS -->
-    <style>
-        .hot-deal-section {
-            background-color: #f8f9fa;
-            padding: 30px 0;
-            margin-bottom: 30px;
-        }
-        .hot-deal-card {
-            border: 2px solid #ff6a00;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            margin-bottom: 20px;
-        }
-        .hot-deal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .hot-deal-header {
-            background-color: #ff6a00;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            margin: 15px 0;
-        }
-        .countdown-unit {
-            margin: 0 5px;
-            text-align: center;
-            background: #ff6a00;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            min-width: 50px;
-        }
-        .countdown-value {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .countdown-label {
-            font-size: 12px;
-        }
-        .discount-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #dc3545;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-    </style>
+<link href="styles/LaptopCollection.css" rel="stylesheet" />
+<style>
+/* 🌌 Dynamic Bumper Offer Background */
+body {
+  background: linear-gradient(135deg, #0b0c10, #1f2833, #0b0c10);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 💥 Header */
+.collection-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at top, #ff416c, #ff4b2b);
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  animation: pulseGlow 3s infinite;
+  box-shadow: 0 0 40px rgba(255, 75, 43, 0.6);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 75, 43, 0.6); }
+  50% { box-shadow: 0 0 60px rgba(255, 75, 43, 0.9); }
+}
+
+.collection-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.view-cart-btn {
+  background: white;
+  color: #ff4b2b;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.view-cart-btn:hover {
+  background: #ff4b2b;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 75, 43, 0.6);
+}
+
+/* 🛍️ Product Grid */
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 30px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 💎 Product Cards */
+.product-card {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: "🔥 HOT DEAL";
+  position: absolute;
+  top: 10px;
+  left: -50px;
+  background: linear-gradient(90deg, #ff4b2b, #ff416c);
+  color: white;
+  padding: 5px 50px;
+  font-size: 12px;
+  font-weight: bold;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 10px rgba(255, 75, 43, 0.5);
+}
+
+.product-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(255, 75, 43, 0.4);
+}
+
+/* 🖼️ Image Gallery */
+.image-gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnails img {
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.thumbnails img:hover {
+  transform: scale(1.1);
+  border-color: #ff4b2b;
+}
+
+/* 💬 Description */
+.desc-text {
+  max-height: 70px;
+  overflow: hidden;
+  color: #ddd;
+  font-size: 14px;
+  transition: max-height 0.5s ease;
+}
+
+/* 💸 Price & Quantity */
+.product-card p {
+  color: #fff;
+  text-align: left;
+  margin: 5px 0;
+}
+
+/* 🛒 Buttons */
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.view-details-btn {
+  background: linear-gradient(45deg, #1db954, #159a43);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.view-details-btn:hover {
+  background: #0f7b32;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.7);
+}
+
+.cart-btn {
+  background: linear-gradient(45deg, #007bff, #00b4d8);
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cart-btn:hover {
+  background: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+}
+
+/* ⚡ Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
+  gap: 15px;
+}
+
+.pagination-btn {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid #ff4b2b;
+  color: #ff4b2b;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background: #ff4b2b;
+  color: white;
+  box-shadow: 0 0 15px rgba(255,75,43,0.6);
+}
+
+.page-indicator {
+  background: #ff4b2b;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(255,75,43,0.6);
+}
+
+/* 🎇 Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Hot Deals Banner -->
-    <div class="hot-deal-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h1>🔥 HOT DEALS 🔥</h1>
-                    <p class="lead">Limited time offers - Don't miss out!</p>
+<form id="form1" runat="server">
+<div class="collection-header">
+<h2 style="color:navy; margin: 0 auto; width: fit-content;">Hot Deals</h2>
+<asp:HyperLink ID="hlViewCart" runat="server" CssClass="btn view-cart-btn" NavigateUrl="Cart.aspx">
+Go to Cart (<asp:Label ID="lblCartCount" runat="server" Text="0"></asp:Label>)
+</asp:HyperLink>
+</div>
+
+    <div class="product-grid">
+        <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="10" OnItemCommand="DataList1_ItemCommand">
+            <ItemTemplate>
+                <div class="product-card">
+                    <div class="image-gallery">
+                        <asp:Image ID="img1" runat="server" ImageUrl='<%# "~/" + Eval("Image1") %>' CssClass="active" onerror="this.style.display='none'" />
+                        <asp:Image ID="img2" runat="server" ImageUrl='<%# "~/" + Eval("Image2") %>' onerror="this.style.display='none'" Visible='<%# !string.IsNullOrEmpty(Eval("Image2").ToString()) %>' />
+                        <asp:Image ID="img3" runat="server" ImageUrl='<%# "~/" + Eval("Image3") %>' onerror="this.style.display='none'" Visible='<%# !string.IsNullOrEmpty(Eval("Image3").ToString()) %>' />
+                        <asp:Image ID="img4" runat="server" ImageUrl='<%# "~/" + Eval("Image4") %>' onerror="this.style.display='none'" Visible='<%# !string.IsNullOrEmpty(Eval("Image4").ToString()) %>' />
+                    </div>
                     
-                    <!-- Countdown Timer -->
-                    <div class="countdown-timer">
-                        <div class="countdown-unit">
-                            <div class="countdown-value" id="days">02</div>
-                            <div class="countdown-label">Days</div>
-                        </div>
-                        <div class="countdown-unit">
-                            <div class="countdown-value" id="hours">10</div>
-                            <div class="countdown-label">Hours</div>
-                        </div>
-                        <div class="countdown-unit">
-                            <div class="countdown-value" id="minutes">34</div>
-                            <div class="countdown-label">Mins</div>
-                        </div>
-                        <div class="countdown-unit">
-                            <div class="countdown-value" id="seconds">60</div>
-                            <div class="countdown-label">Secs</div>
-                        </div>
+                    <div class="thumbnails">
+                        <asp:Image ID="thumb1" runat="server" ImageUrl='<%# "~/" + Eval("Image1") %>' CssClass="active-thumb" onclick="changeImage(this, '<%# Container.ItemIndex %>')" onerror="this.style.display='none'" />
+                        <asp:Image ID="thumb2" runat="server" ImageUrl='<%# "~/" + Eval("Image2") %>' onclick="changeImage(this, '<%# Container.ItemIndex %>')" onerror="this.style.display='none'" Visible='<%# !string.IsNullOrEmpty(Eval("Image2").ToString()) %>' />
+                        <asp:Image ID="thumb3" runat="server" ImageUrl='<%# "~/" + Eval("Image3") %>' onclick="changeImage(this, '<%# Container.ItemIndex %>')" onerror="this.style.display='none'" Visible='<%# !string.IsNullOrEmpty(Eval("Image3").ToString()) %>' />
+                        <asp:Image ID="thumb4" runat="server" ImageUrl='<%# "~/" + Eval("Image4") %>' onclick="changeImage(this, '<%# Container.ItemIndex %>')" onerror="this.style.display='none'" Visible='<%# !string.IsNullOrEmpty(Eval("Image4").ToString()) %>' />
+                    </div>
+                    
+                    <h3><%# Eval("Product_Name") %></h3>
+                    <p><b>Price:</b> ₹<%# Eval("Price", "{0:N2}") %></p>
+                    <p><b>Available:</b> <%# Eval("Quantity") %></p>
+
+                    <div class="desc-wrapper">
+                        <p class="desc-text"><%# Eval("Description") %></p>
+                    </div>
+
+                    <!-- Buttons Section -->
+                    <div class="cart-buttons">
+                        <asp:Button ID="btnViewDetails" runat="server" Text="View Details" 
+                            CssClass="view-details-btn" 
+                            CommandArgument='<%# Eval("ID") %>' 
+                            CommandName="ViewDetails" />
+
+                        <asp:Button ID="btnAddCart" runat="server" Text="Add to Cart" 
+                            CssClass="cart-btn" 
+                            CommandArgument='<%# Eval("ID") %>' 
+                            CommandName="AddToCart" />
                     </div>
                 </div>
-            </div>
-        </div>
+            </ItemTemplate>
+        </asp:DataList>
     </div>
 
-    <!-- Hot Deals Products -->
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h3 class="title">Today's Best Deals</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <!-- Product 1 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="product hot-deal-card">
-                        <div class="hot-deal-header">FLASH SALE</div>
-                        <div class="product-img">
-                            <img src="./img/product01.png" alt="">
-                            <div class="discount-badge">-30%</div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Laptop</p>
-                            <h3 class="product-name"><a href="#">Dell XPS 13 Laptop</a></h3>
-                            <h4 class="product-price">$980.00 <del class="product-old-price">$1,400.00</del></h4>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 2 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="product hot-deal-card">
-                        <div class="hot-deal-header">LIMITED STOCK</div>
-                        <div class="product-img">
-                            <img src="./img/product02.png" alt="">
-                            <div class="discount-badge">-25%</div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Smartphone</p>
-                            <h3 class="product-name"><a href="#">Samsung Galaxy S21</a></h3>
-                            <h4 class="product-price">$750.00 <del class="product-old-price">$1,000.00</del></h4>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 3 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="product hot-deal-card">
-                        <div class="hot-deal-header">DEAL OF THE DAY</div>
-                        <div class="product-img">
-                            <img src="./img/product03.png" alt="">
-                            <div class="discount-badge">-40%</div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Camera</p>
-                            <h3 class="product-name"><a href="#">Canon EOS R5</a></h3>
-                            <h4 class="product-price">$2,399.00 <del class="product-old-price">$3,999.00</del></h4>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- More Hot Deals Section -->
-            <div class="row" style="margin-top: 40px;">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h3 class="title">More Hot Deals</h3>
-                    </div>
-                    
-                    <div class="row">
-                        <!-- Deal 1 -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product04.png" alt="">
-                                    <div class="product-label">
-                                        <span class="sale">-20%</span>
-                                    </div>
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Accessories</p>
-                                    <h3 class="product-name"><a href="#">Wireless Headphones</a></h3>
-                                    <h4 class="product-price">$79.99 <del class="product-old-price">$99.99</del></h4>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Deal 2 -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product05.png" alt="">
-                                    <div class="product-label">
-                                        <span class="sale">-15%</span>
-                                    </div>
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Tablet</p>
-                                    <h3 class="product-name"><a href="#">iPad Air</a></h3>
-                                    <h4 class="product-price">$599.00 <del class="product-old-price">$699.00</del></h4>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Deal 3 -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product06.png" alt="">
-                                    <div class="product-label">
-                                        <span class="sale">-35%</span>
-                                    </div>
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Smart Watch</p>
-                                    <h3 class="product-name"><a href="#">Apple Watch Series 7</a></h3>
-                                    <h4 class="product-price">$329.00 <del class="product-old-price">$499.00</del></h4>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Deal 4 -->
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product07.png" alt="">
-                                    <div class="product-label">
-                                        <span class="sale">-10%</span>
-                                    </div>
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Gaming</p>
-                                    <h3 class="product-name"><a href="#">PlayStation 5</a></h3>
-                                    <h4 class="product-price">$539.99 <del class="product-old-price">$599.99</del></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</form>
+
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="Scripts" runat="server">
-    <!-- Page-specific JavaScript -->
-    <script>
-        // Countdown timer functionality
-        function updateCountdown() {
-            const days = document.getElementById('days');
-            const hours = document.getElementById('hours');
-            const minutes = document.getElementById('minutes');
-            const seconds = document.getElementById('seconds');
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 🔄 Image Thumbnail Change
+        document.querySelectorAll('.thumbnails img').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const card = thumb.closest('.product-card');
+                const galleryImgs = card.querySelectorAll('.image-gallery img');
+                galleryImgs.forEach(img => img.classList.remove('active'));
+                galleryImgs[Array.from(thumb.parentNode.children).indexOf(thumb)].classList.add('active');
 
-            let sec = parseInt(seconds.innerText);
-            let min = parseInt(minutes.innerText);
-            let hr = parseInt(hours.innerText);
-            let d = parseInt(days.innerText);
-
-            sec--;
-
-            if (sec < 0) {
-                sec = 59;
-                min--;
-
-                if (min < 0) {
-                    min = 59;
-                    hr--;
-
-                    if (hr < 0) {
-                        hr = 23;
-                        d--;
-
-                        if (d < 0) {
-                            // Timer completed
-                            clearInterval(countdownInterval);
-                            document.querySelector('.countdown-timer').innerHTML = '<div class="alert alert-warning">Deal has ended!</div>';
-                            return;
-                        }
-                    }
-                }
-            }
-
-            seconds.innerText = sec.toString().padStart(2, '0');
-            minutes.innerText = min.toString().padStart(2, '0');
-            hours.innerText = hr.toString().padStart(2, '0');
-            days.innerText = d.toString().padStart(2, '0');
-        }
-
-        // Start the countdown timer
-        const countdownInterval = setInterval(updateCountdown, 1000);
-
-        // Add to cart functionality
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const product = this.closest('.product');
-                const productName = product.querySelector('.product-name').textContent;
-
-                // Show added to cart message
-                const originalText = this.innerHTML;
-                this.innerHTML = '<i class="fa fa-check"></i> Added!';
-
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                }, 2000);
-
-                // You would typically send an AJAX request to your server here
-                console.log(`Added ${productName} to cart`);
+                card.querySelectorAll('.thumbnails img').forEach(t => t.classList.remove('active-thumb'));
+                thumb.classList.add('active-thumb');
             });
         });
-    </script>
+
+        // ✨ Floating Sparkle Animation
+        createSparkles();
+    });
+
+    function createSparkles() {
+        const sparkleContainer = document.createElement('div');
+        sparkleContainer.style.position = 'fixed';
+        sparkleContainer.style.top = 0;
+        sparkleContainer.style.left = 0;
+        sparkleContainer.style.width = '100%';
+        sparkleContainer.style.height = '100%';
+        sparkleContainer.style.pointerEvents = 'none';
+        document.body.appendChild(sparkleContainer);
+
+        setInterval(() => {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.position = 'absolute';
+            sparkle.style.width = '5px';
+            sparkle.style.height = '5px';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.background = 'radial-gradient(circle, #ff4b2b 0%, transparent 80%)';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.opacity = 0;
+            sparkle.style.transition = 'opacity 2s, transform 2s';
+            sparkleContainer.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.style.opacity = 1;
+                sparkle.style.transform = 'translateY(-50px)';
+            }, 10);
+
+            setTimeout(() => sparkle.remove(), 2500);
+        }, 300);
+    }
+</script>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </asp:Content>

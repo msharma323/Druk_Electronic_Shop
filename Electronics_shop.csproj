@@ -67,13 +67,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
     <Content Include="AccessoriesCollection.aspx" />
-    <Content Include="admin.aspx" />
+    <Content Include="add_product.aspx" />
+    <Content Include="AdminContact.aspx" />
     <Content Include="admin_login.aspx" />
+    <Content Include="checkout.aspx" />
+    <Content Include="ContactUs.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="img\20230603_102641.jpg" />
+    <Content Include="img\Exploring-Android.png" />
     <Content Include="img\Gemini_Generated_Image_npspgenpspgenpsp.png" />
+    <Content Include="img\unnamed %281%29.jpg" />
     <Content Include="LaptopCollection.aspx" />
-    <Content Include="manage_products.aspx" />
+    <Content Include="manage_order.aspx" />
+    <Content Include="manage_product.aspx" />
     <Content Include="order.aspx" />
+    <Content Include="profile.aspx" />
+    <Content Include="registered_user.aspx" />
     <Content Include="styles\about.css" />
     <Content Include="styles\admin.css" />
     <Content Include="styles\admin_login.css" />
@@ -174,8 +185,16 @@
     <Content Include="ViewDetail.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AccessoriesCollection.aspx.cs">
       <DependentUpon>AccessoriesCollection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,12 +202,19 @@
     <Compile Include="AccessoriesCollection.aspx.designer.cs">
       <DependentUpon>AccessoriesCollection.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin.aspx.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="add_product.aspx.cs">
+      <DependentUpon>add_product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin.aspx.designer.cs">
-      <DependentUpon>admin.aspx</DependentUpon>
+    <Compile Include="add_product.aspx.designer.cs">
+      <DependentUpon>add_product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminContact.aspx.cs">
+      <DependentUpon>AdminContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminContact.aspx.designer.cs">
+      <DependentUpon>AdminContact.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin_login.aspx.cs">
       <DependentUpon>admin_login.aspx</DependentUpon>
@@ -210,6 +236,23 @@
     </Compile>
     <Compile Include="Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HotDeals.aspx.cs">
       <DependentUpon>HotDeals.aspx</DependentUpon>
@@ -239,12 +282,19 @@
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage_products.aspx.cs">
-      <DependentUpon>manage_products.aspx</DependentUpon>
+    <Compile Include="manage_order.aspx.cs">
+      <DependentUpon>manage_order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage_products.aspx.designer.cs">
-      <DependentUpon>manage_products.aspx</DependentUpon>
+    <Compile Include="manage_order.aspx.designer.cs">
+      <DependentUpon>manage_order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage_product.aspx.cs">
+      <DependentUpon>manage_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage_product.aspx.designer.cs">
+      <DependentUpon>manage_product.aspx</DependentUpon>
     </Compile>
     <Compile Include="order.aspx.cs">
       <DependentUpon>order.aspx</DependentUpon>
@@ -253,13 +303,34 @@
     <Compile Include="order.aspx.designer.cs">
       <DependentUpon>order.aspx</DependentUpon>
     </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="registered_user.aspx.cs">
+      <DependentUpon>registered_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registered_user.aspx.designer.cs">
+      <DependentUpon>registered_user.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
     <Compile Include="ViewDetail.aspx.cs">
       <DependentUpon>ViewDetail.aspx</DependentUpon>
@@ -275,6 +346,13 @@
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -287,6 +365,7 @@
     <Content Include="fonts\slick.woff" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="Site2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -297,6 +376,7 @@
   <ItemGroup>
     <Folder Include="images\products\" />
     <Folder Include="Product_Images\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

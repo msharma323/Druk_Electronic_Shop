@@ -1,24 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Electronics_shop
 {
     public partial class admin_login : System.Web.UI.Page
     {
-        string s = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        public string s = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
         SqlConnection con;
         SqlCommand cmd;
         SqlDataAdapter da;
         DataSet ds;
 
-        public void GetCon()
+        public void getcon()
         {
             con = new SqlConnection(s);
             con.Open();
@@ -32,6 +28,7 @@ namespace Electronics_shop
                 lblMessage.ForeColor = System.Drawing.Color.Red;
                 Session.Remove("LoginMessage");
             }
+
             if (Session["AdminResetMessage"] != null)
             {
                 lblMessage.Text = Session["AdminResetMessage"].ToString();
@@ -49,18 +46,18 @@ namespace Electronics_shop
                 return;
             }
 
-            GetCon();
-            string query = "select * from admin where Email='" + txtEmail.Text + "' and Password='" + txtPassword.Text + "'";
-            cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
+            getcon();
+            da = new SqlDataAdapter("select * from admin where Email='" + txtEmail.Text + "' and Password='" + txtPassword.Text + "'", con);
+            ds = new DataSet();
+            da.Fill(ds);
 
-            if (dr.Read())
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                Session["AdminID"] = dr["ID"].ToString();
-                Session["AdminName"] = dr["FullName"].ToString();
-                Session["AdminEmail"] = dr["Email"].ToString();
-                Session["AdminRole"] = dr["Role"].ToString();
-                Response.Redirect("admin.aspx");
+                Session["AdminID"] = ds.Tables[0].Rows[0]["ID"].ToString();
+                Session["AdminName"] = ds.Tables[0].Rows[0]["FullName"].ToString();
+                Session["AdminEmail"] = ds.Tables[0].Rows[0]["Email"].ToString();
+                Session["AdminRole"] = ds.Tables[0].Rows[0]["Role"].ToString();
+                Response.Redirect("add_product.aspx");
             }
             else
             {

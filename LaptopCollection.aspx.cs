@@ -42,32 +42,17 @@ namespace Electronics_shop
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            LinkButton1.Enabled = true;
-            p = Convert.ToInt32(ViewState["pid"]) + 1;
-
-            ViewState["pid"] = Convert.ToInt32(p);
-
-            int temp = row / pg.PageSize;
-            if (p == temp)
-            {
-                LinkButton2.Enabled = false;
-            }
+            int currentpage = Convert.ToInt32(ViewState["pid"]);
+            currentpage++;
+            ViewState["pid"] = currentpage;
             filllist();
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            LinkButton2.Enabled = true;
-
-            p += Convert.ToInt32(ViewState["pid"]) - 1;
-
-            ViewState["pid"] = Convert.ToInt32(p);
-
-            int temp = row / pg.PageSize;
-            if (p == temp)
-            {
-                LinkButton1.Enabled = false;
-            }
+            int currentpage = Convert.ToInt32(ViewState["pid"]);
+            currentpage--;
+            ViewState["pid"] = currentpage;
             filllist();
         }
 
@@ -82,7 +67,7 @@ namespace Electronics_shop
             pg = new PagedDataSource();
 
             pg.AllowPaging = true; 
-            pg.PageSize = 3;
+            pg.PageSize = 4;
             pg.CurrentPageIndex = Convert.ToInt32(ViewState["pid"]);
 
             pg.DataSource = ds.Tables[0].DefaultView;

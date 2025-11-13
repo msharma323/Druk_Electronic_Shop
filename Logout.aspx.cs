@@ -13,8 +13,7 @@ namespace Electronics_shop
         {
             Session.Clear();
             Session.Abandon();
-
-            Response.Redirect("webform1.aspx?isAuth=false");
+            Response.Redirect("webform1.aspx");
         }
     }
 }

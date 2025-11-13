@@ -50,7 +50,6 @@ namespace Electronics_shop
             filllist();
         }
 
-        // Pagination Logic for Previous Button (LinkButton1)
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             LinkButton2.Enabled = true;
@@ -79,7 +78,7 @@ namespace Electronics_shop
             pg = new PagedDataSource();
 
             pg.AllowPaging = true;
-            pg.PageSize = 3;
+            pg.PageSize = 4;
             pg.CurrentPageIndex = Convert.ToInt32(ViewState["pid"]);
 
 

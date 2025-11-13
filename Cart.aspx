@@ -110,7 +110,7 @@
 
         <div style="margin-top:20px; text-align:center;">
             <asp:Button ID="Button1" runat="server" CssClass="btn-order" Text="Proceed to Order" OnClick="btnOrder_Click" />
-            <a href="LaptopCollection.aspx" class="continue-shopping">← Continue Shopping</a>
+            <a href="webform1.aspx" class="continue-shopping">← Continue Shopping</a>
         </div>
     </div>
      </form>

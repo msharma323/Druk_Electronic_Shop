@@ -115,7 +115,7 @@ background: #0056b3;
 </div>
 
     <div class="product-grid">
-        <asp:DataList ID="DataList1" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" CellPadding="10" OnItemCommand="DataList1_ItemCommand">
+        <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="10" OnItemCommand="DataList1_ItemCommand">
             <ItemTemplate>
                 <div class="product-card">
                     <div class="image-gallery">

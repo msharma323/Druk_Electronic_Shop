@@ -68,10 +68,29 @@ namespace Electronics_shop
         {
 
         }
-        
+
         protected void btnOrder_Click(object sender, EventArgs e)
         {
-           
+            getcon();
+
+            da = new SqlDataAdapter("select * from users where Email='" + Session["Email"] + "'", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            int uid = Convert.ToInt16(ds.Tables[0].Rows[0]["Id"]);
+
+            da = new SqlDataAdapter("select count(*) from Cart_tbl where User_Cart_Id='" + uid + "'", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            int count = Convert.ToInt32(dt.Rows[0][0]);
+
+            if (count > 0)
+            {
+                Response.Redirect("checkout.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Your cart is empty!');</script>");
+            }
         }
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
